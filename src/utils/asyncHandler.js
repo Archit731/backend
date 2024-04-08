@@ -1,5 +1,6 @@
 const asyncHandler = (requestHandler) => {
-  (req, res, next) => {
+  return (req, res, next) => {
+    //we have to return the function cuz we accpet as function and also return as function
     Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
   };
 };

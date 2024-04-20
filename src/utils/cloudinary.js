@@ -15,7 +15,8 @@ const uploadOnCloudinary = async (localFilePath) => {
       resource_type: "auto", // detect automatically the file type coming
     });
     //file has been uploaded sucessfully
-    console.log("file is uploaded on cloudinary", response.url);
+    //console.log("file is uploaded on cloudinary", response.url);
+    fs.unlinkSync(localFilePath);
     return response;
   } catch (error) {
     //since we already have a localfilepath that means file is on our server but since it failed on uploading then we should remove it from our server too to not have malicious files on our server
